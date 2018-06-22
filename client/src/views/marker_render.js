@@ -6,9 +6,9 @@ const MarkerRender = function(){
 
 MarkerRender.prototype.addMarkers = function () {
   PubSub.subscribe('Locations:locations-ready', (event) => {
-    event.detail.forEach(function(location, index) {
+    event.detail.forEach(function(location) {
       map.addMarker(location.latlng[0], location.latlng[1])
-      console.log(index);
+      PubSub.publish('Marker:selected-location', location)
     })
   })
 };
