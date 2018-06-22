@@ -9,14 +9,13 @@ const MapWrapper = function(element, lat, lng, zoom){
   .setView([lat, lng], zoom)
 };
 
-MapWrapper.prototype.addMarker = function(lat, lng){
+MapWrapper.prototype.addMarker = function(location){
+  let lat = location.latlng[0]
+  let lng = location.latlng[1]
   let marker = L.marker([lat, lng])
   .addTo(this.map)
   .on('click', this.markerClick);
-  PubSub.subscribe('Marker:selected-location', (event) => {
-    console.log(event.detail);
-    marker.detail = event.detail
-  })
+  marker.detail = location
 }
 
 MapWrapper.prototype.markerClick = function (e) {
