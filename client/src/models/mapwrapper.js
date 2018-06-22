@@ -7,4 +7,9 @@ const MapWrapper = function(element, lat, lng, zoom){
       .setView([lat, lng], zoom)
 };
 
+MapWrapper.prototype.addMarker = function(lat, lng){
+    L.marker([lat, lng])
+    .addTo(this.map);
+}
+
 module.exports = MapWrapper;
