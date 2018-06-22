@@ -5,22 +5,22 @@ const MapWrapper = function(element, lat, lng, zoom){
   const osm = new L.TileLayer(osmUrl);
 
   this.map = L.map(element)
-      .addLayer(osm)
-      .setView([lat, lng], zoom)
+  .addLayer(osm)
+  .setView([lat, lng], zoom)
 };
 
 MapWrapper.prototype.addMarker = function(lat, lng){
-    let marker = L.marker([lat, lng])
-    .addTo(this.map)
-    .on('click', this.markerClick);
-    PubSub.subscribe('Marker:selected-location', (event) => {
-      marker.detail = event.detail
-    })
-
+  let marker = L.marker([lat, lng])
+  .addTo(this.map)
+  .on('click', this.markerClick);
+  PubSub.subscribe('Marker:selected-location', (event) => {
+    console.log(event.detail);
+    marker.detail = event.detail
+  })
 }
 
 MapWrapper.prototype.markerClick = function (e) {
-  console.log(e.target.detail);
+  PubSub.publish('Marker:marker-clicked', e.target.detail)
 };
 
 module.exports = MapWrapper;

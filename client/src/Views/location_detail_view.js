@@ -3,13 +3,15 @@ const LocationDetailView = function(container){
 }
 
 LocationDetailView.prototype.bindEvents= function () {
-  PubSub.subscribe('Map:location-selected', (event) => {
+  PubSub.subscribe('Marker:marker-clicked', (event) => {
     this.renderLocationDetail(event.detail)
   })
 
 };
 
 LocationDetailView.prototype.renderLocationDetail = function (location) {
+  this.clearContent(this.container)
+  
   const title = document.createElement('h1')
   title.innerText = location.name
   this.container.appendChild(title)
@@ -26,7 +28,12 @@ LocationDetailView.prototype.renderLocationDetail = function (location) {
   const fact = document.createElement('section')
   fact.innerText = location.fact
   infoDiv.appendChild(fact)
+};
 
+LocationDetailView.prototype.clearContent = function (node) {
+  while (node.hasChildNodes()) {
+  node.removeChild(node.lastChild);
+}
 };
 
 module.exports = LocationDetailView;
