@@ -38,13 +38,22 @@ LocationDetailView.prototype.createAddButton = function (location) {
   const form = document.createElement('form')
   form.classList.add('btn-add')
   form.innerText = 'Add'
-  form.value = location
+  form.value = this.createItineraryItem(location)
 
   form.addEventListener('click', (evt) => {
     PubSub.publish('Location:add-btn-clicked', evt.target.value)
   })
   return form
 }
+
+LocationDetailView.prototype.createItineraryItem = function (location) {
+  const itineraryLocation = {
+    name: location.name,
+    fact: location.fact,
+    image: location.image
+  }
+  return itineraryLocation
+};
 
 LocationDetailView.prototype.clearContent = function (node) {
   while (node.hasChildNodes()) {

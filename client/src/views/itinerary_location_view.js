@@ -14,5 +14,11 @@ ItineraryLocationView.prototype.render = function (location) {
   this.container.appendChild(locationContainer)
 };
 
+ItineraryLocationView.prototype.createDeleteButton = function (locationId) {
+  const button = document.createElement('button')
+  button.classList.add('btn-remove')
+  button.value = locationId
+};
+
 
 module.exports = ItineraryLocationView;

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const itinerary = new Itinerary()
   itinerary.getData()
+  itinerary.bindEvents()
 
   const markerRender = new MarkerRender()
   markerRender.addMarkers()

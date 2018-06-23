@@ -11,8 +11,15 @@ ItinerayView.prototype.bindEvents = function () {
 };
 
 ItinerayView.prototype.render = function (locations) {
+  this.clearContent(this.container)
     const itineraryLocation = new ItineraryLocationView(this.container)
     locations.forEach((location) => itineraryLocation.render(location))
+};
+
+ItinerayView.prototype.clearContent = function (node) {
+  while (node.hasChildNodes()) {
+    node.removeChild(node.lastChild);
+  }
 };
 
 
