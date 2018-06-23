@@ -9,6 +9,9 @@ Itinerary.prototype.bindEvents = function () {
   PubSub.subscribe('Location:add-btn-clicked', (evt) => {
     this.postLocation(evt.detail)
   })
+  PubSub.subscribe('Itinerary:delete-btn-clicked', (evt) => {
+    this.removeLocation(evt.detail)
+  })
 };
 
 Itinerary.prototype.getData = function () {
@@ -31,6 +34,15 @@ Itinerary.prototype.postLocation = function (location) {
     PubSub.publish('Itinerary:locations-ready', locations);
   })
   .catch(console.error);
+};
+
+Itinerary.prototype.removeLocation = function (location) {
+  const request = new Request(this.url);
+  request.delete(location)
+  .then((locations) => {
+    PubSub.publish('Itinerary:locations-ready', locations)
+  })
+  .catch(console.error)
 };
 
 module.exports = Itinerary

@@ -11,6 +11,9 @@ ItineraryLocationView.prototype.render = function (location) {
   name.innerText = location.name
   locationContainer.appendChild(name)
 
+  const deleteButton = this.createDeleteButton(location._id)
+  locationContainer.appendChild(deleteButton)
+
   this.container.appendChild(locationContainer)
 };
 
@@ -18,6 +21,11 @@ ItineraryLocationView.prototype.createDeleteButton = function (locationId) {
   const button = document.createElement('button')
   button.classList.add('btn-remove')
   button.value = locationId
+
+  button.addEventListener('click', (evt) => {
+    PubSub.publish('Itinerary:delete-btn-clicked', evt.target.value)
+  })
+  return button
 };
 
 
