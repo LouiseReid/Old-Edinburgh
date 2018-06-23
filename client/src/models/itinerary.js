@@ -15,12 +15,12 @@ Itinerary.prototype.getData = function () {
   const request = new Request(this.url);
   request.get()
   .then((data) => {
-    this.storeData(data)
+    this.sendData(data)
   })
   .catch(console.error)
 };
 
-Itinerary.prototype.storeData = function (data) {z
+Itinerary.prototype.sendData = function (data) {
   PubSub.publish('Itinerary:locations-ready', data)
 };
 
