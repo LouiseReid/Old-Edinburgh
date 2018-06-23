@@ -21,9 +21,9 @@ MongoClient.connect('mongodb://localhost:27017', (err, client) => {
   const locationsRouter = createRouter(locations);
   app.use('/api/locations', locationsRouter);
 
-  const visits = db.collection('visits');
-  const visitsRouter = createRouter(visits);
-  app.use('/api/visits', visitsRouter);
+  const itinerary = db.collection('itinerary');
+  const itineraryRouter = createRouter(itinerary);
+  app.use('/api/itinerary', itineraryRouter);
 });
 
 

@@ -3,3 +3,12 @@
   height: 500px;
   border: 1px solid black
 }
+
+img {
+  height: 100px;
+}
+
+.btn-add {
+  height: 20px;
+  background-color: green
+}
