@@ -15,8 +15,7 @@ Itinerary.prototype.bindEvents = function () {
     this.removeLocation(evt.detail)
   })
   PubSub.subscribe('Itinerary:visited-btn-clicked', (evt) => {
-    console.log(evt.detail);
-    // this.markVisited(evt.detail)
+    this.markVisited(evt.detail.id, evt.detail.payload)
   })
 };
 

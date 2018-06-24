@@ -45,7 +45,9 @@ ItineraryLocationView.prototype.createVisitedButton = function (location) {
   form.innerText = 'visited'
   form.value = {
     id: location,
-    visited: true
+    payload: {
+      visited: true
+    }
   }
 
   form.addEventListener('click', (evt) => {
