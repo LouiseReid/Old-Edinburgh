@@ -22,7 +22,7 @@ ItineraryLocationView.prototype.render = function (location) {
   const deleteButton = this.createDeleteButton(location._id)
   locationContainer.appendChild(deleteButton)
 
-  const visitedButton = this.createVisitedButton()
+  const visitedButton = this.createVisitedButton(location._id)
   locationContainer.appendChild(visitedButton)
 
   this.container.appendChild(locationContainer)
@@ -39,15 +39,22 @@ ItineraryLocationView.prototype.createDeleteButton = function (locationId) {
   return button
 };
 
-ItineraryLocationView.prototype.createVisitedButton = function () {
-  const button = document.createElement('button')
-  button.classList.add('btn-visited')
+ItineraryLocationView.prototype.createVisitedButton = function (location) {
+  const form = document.createElement('form')
+  form.classList.add('btn-visited')
+  form.innerText = 'visited'
+  form.value = {
+    id: location,
+    visited: true
+  }
 
-  button.addEventListener('click', function(){
-    this.parentElement.classList.add('visited')
+  form.addEventListener('click', (evt) => {
+    PubSub.publish('Itinerary:visited-btn-clicked', evt.target.value)
   });
-  return button
+  return form
 };
+
+
 
 
 module.exports = ItineraryLocationView;

@@ -14,6 +14,10 @@ Itinerary.prototype.bindEvents = function () {
   PubSub.subscribe('Itinerary:delete-btn-clicked', (evt) => {
     this.removeLocation(evt.detail)
   })
+  PubSub.subscribe('Itinerary:visited-btn-clicked', (evt) => {
+    console.log(evt.detail);
+    // this.markVisited(evt.detail)
+  })
 };
 
 Itinerary.prototype.getData = function () {
@@ -48,9 +52,14 @@ Itinerary.prototype.removeLocation = function (location) {
   .catch(console.error)
 };
 
-
-Itinerary.prototype.checkDuplicates = function (name) {
-  const names = _.map(this.locations, 'name');
-  return _.includes(names, name)
+Itinerary.prototype.markVisited = function (location, update) {
+  const request = new Request(this.url);
+  request.patch(location, update)
+  .then((locations) => {
+    PubSub.publish('Itinerary:locations-ready', locations)
+  })
+  .catch(console.error)
 };
+
+
 module.exports = Itinerary
