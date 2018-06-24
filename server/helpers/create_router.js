@@ -23,13 +23,23 @@ const createRouter = function(collection){
   router.post('/', (req, res) => {
     const newData = req.body;
     collection
-    .insertOne(newData)
-    .then(() => {
-      collection
-      .find()
-      .toArray()
-      .then((docs) => res.json(docs));
-    });
+    .findOne(newData, function(err, success){
+      if(err){
+        console.log(err);
+      }
+      else {
+        if(success == null){
+          collection
+          .insertOne(newData)
+          .then(() => {
+            collection
+            .find()
+            .toArray()
+            .then((docs) => res.json(docs));
+          });
+        }
+      }
+    })
   });
 
   router.delete('/:id', (req, res) => {

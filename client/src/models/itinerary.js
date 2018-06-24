@@ -9,11 +9,7 @@ const Itinerary = function() {
 
 Itinerary.prototype.bindEvents = function () {
   PubSub.subscribe('Location:add-btn-clicked', (evt) => {
-    this.locations.forEach((location) => {
-      if(_.has(location, 'name' !== evt.detail.name)){
-        this.postLocation(evt.detail)
-      }
-    })
+    this.postLocation(evt.detail)
   })
   PubSub.subscribe('Itinerary:delete-btn-clicked', (evt) => {
     this.removeLocation(evt.detail)
@@ -52,4 +48,9 @@ Itinerary.prototype.removeLocation = function (location) {
   .catch(console.error)
 };
 
+
+Itinerary.prototype.checkDuplicates = function (name) {
+  const names = _.map(this.locations, 'name');
+  return _.includes(names, name)
+};
 module.exports = Itinerary

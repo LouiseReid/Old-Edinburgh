@@ -41,6 +41,11 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.visited {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
 img {
   height: 100px;
 }
@@ -53,4 +58,10 @@ img {
   height: 20px;
   width: 20px;
   background-color: red
+}
+
+.btn-visited {
+  height: 20px;
+  width: 20px;
+  background-color: green
 }

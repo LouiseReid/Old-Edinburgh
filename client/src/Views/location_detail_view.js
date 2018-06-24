@@ -31,7 +31,6 @@ LocationDetailView.prototype.renderLocationDetail = function (location) {
 
   const addButton = this.createAddButton(location)
   this.container.appendChild(addButton)
-
 };
 
 LocationDetailView.prototype.createAddButton = function (location) {
@@ -41,6 +40,7 @@ LocationDetailView.prototype.createAddButton = function (location) {
   form.value = this.createItineraryItem(location)
 
   form.addEventListener('click', (evt) => {
+    evt.preventDefault()
     PubSub.publish('Location:add-btn-clicked', evt.target.value)
   })
   return form
