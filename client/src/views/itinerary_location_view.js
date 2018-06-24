@@ -9,7 +9,14 @@ ItineraryLocationView.prototype.render = function (location) {
 
   const name = document.createElement('h4')
   name.innerText = location.name
+  name.classList.add('itinerary-name')
   locationContainer.appendChild(name)
+
+  const image = document.createElement('img')
+  image.src = location.image
+  image.alt = location.name
+  image.classList.add('itinerary-image')
+  locationContainer.appendChild(image)
 
   const deleteButton = this.createDeleteButton(location._id)
   locationContainer.appendChild(deleteButton)

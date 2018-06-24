@@ -1,7 +1,44 @@
+body {
+  margin: 0 auto;
+}
+
+#page-header {
+  text-align: center;
+}
+
+#main-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 #map {
-  width: 500px;
+  width: 45vw;
   height: 500px;
-  border: 1px solid black
+}
+
+#location-info {
+  width: 45vw;
+}
+
+.location-info-inner {
+  display: flex;
+}
+
+#itinerary-container {
+  display: flex;
+}
+
+.itinerary-card {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.itinerary-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 img {
@@ -10,7 +47,6 @@ img {
 
 .btn-add {
   height: 20px;
-  background-color: green
 }
 
 .btn-remove {
