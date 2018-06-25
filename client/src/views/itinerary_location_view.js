@@ -88,18 +88,14 @@ ItineraryLocationView.prototype.renderRatings = function (locationRating) {
   const p = document.createElement('p')
   p.classList.add('rating')
 
-  p.innerText = 'Review: ' + this.rating(locationRating)
+  p.innerText = 'Rating: ' + this.rating(locationRating)
 
   return p
 };
 
 ItineraryLocationView.prototype.rating = function (locationRating) {
-  if (!locationRating) {
-    return 'Yet to be reviewed'
-  }
-  else {
-    return locationRating
-  }
+  review = '★'.repeat(locationRating)
+  return !locationRating ? 'No Review' : review
 };
 
 
