@@ -22,7 +22,6 @@ ReviewView.prototype.storeLocation = function () {
 ReviewView.prototype.handleSubmit = function (evt) {
   evt.preventDefault();
   const review = this.createReview(evt.target, this.location)
-  console.log(review);
   PubSub.publish('Review:review-submitted', review)
   evt.target.reset();
   const modal = document.getElementById('modal');

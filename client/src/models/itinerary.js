@@ -1,6 +1,5 @@
 const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
-const _ = require('lodash')
 
 const Itinerary = function() {
   this.url = 'http://localhost:3000/api/itinerary'
@@ -16,6 +15,9 @@ Itinerary.prototype.bindEvents = function () {
   })
   PubSub.subscribe('Itinerary:visited-btn-clicked', (evt) => {
     this.markVisited(evt.detail.id, evt.detail.payload)
+  })
+  PubSub.subscribe('Review:review-submitted', (evt) => {
+    this.addReview(evt.detail.id, evt.detail.payload)
   })
 };
 
@@ -60,5 +62,13 @@ Itinerary.prototype.markVisited = function (location, update) {
   .catch(console.error)
 };
 
+Itinerary.prototype.addReview = function (location, update) {
+  const request = new Request(this.url);
+  request.patch(location, update)
+  .then((locations) => {
+    PubSub.publish('Itinerary:locations-ready', locations)
+  })
+  .catch(console.error)
+};
 
 module.exports = Itinerary
