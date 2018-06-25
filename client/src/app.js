@@ -2,8 +2,10 @@ const MapWrapper = require('./models/mapwrapper.js');
 const Locations = require('./models/locations.js');
 const Itinerary = require('./models/itinerary.js');
 const MarkerRender = require('./views/marker_render.js');
-const LocationDetail = require('./views/location_detail_view.js')
-const ItinerayView = require('./views/itinerary_view.js')
+const LocationDetail = require('./views/location_detail_view.js');
+const ItinerayView = require('./views/itinerary_view.js');
+const ReviewView = require('./views/review_view.js');
+
 
 document.addEventListener('DOMContentLoaded', () => {
   map = new MapWrapper('map', 55.948595, -3.199913, 15);
@@ -24,5 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const itineraryContainer = document.getElementById('itinerary-container')
   const itineraryView = new ItinerayView(itineraryContainer)
   itineraryView.bindEvents()
+
+  const form = document.getElementById('review-form')
+  const reviewView = new ReviewView(form)
+  reviewView.bindEvents()
 
 })
