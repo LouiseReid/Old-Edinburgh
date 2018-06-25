@@ -53,7 +53,7 @@ img {
   justify-content: space-evenly;
 }
 
-.visited-true {
+.visited-true img{
   opacity: 0.3;
   filter: grayscale(50%);
 }
@@ -64,6 +64,22 @@ img {
 
 .rating-container {
   color: black
+}
+
+.visited-true .fa-check-circle {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  border-radius: 50%;
+  font-size: 34px;
+  color: lightseagreen;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+}
+
+.visited-true * {
+  transition: transform 5s ease-out;
 }
 
 

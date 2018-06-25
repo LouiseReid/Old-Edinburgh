@@ -19,6 +19,11 @@ ItineraryLocationView.prototype.render = function (location) {
   image.classList.add('itinerary-image')
   locationContainer.appendChild(image)
 
+
+  const icon = document.createElement('i')
+  icon.classList.add('fa', 'fa-check-circle')
+  locationContainer.append(icon)
+
   const buttonContainer = document.createElement('div')
   buttonContainer.classList.add('itinerary-options-container')
   locationContainer.appendChild(buttonContainer)
@@ -94,7 +99,7 @@ ItineraryLocationView.prototype.renderRatings = function (locationRating) {
 };
 
 ItineraryLocationView.prototype.rating = function (locationRating) {
-  review = '★'.repeat(locationRating)
+  review = '⭐'.repeat(locationRating)
   return !locationRating ? 'No Review' : review
 };
 
