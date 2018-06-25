@@ -14,6 +14,7 @@ body {
 #map {
   width: 45vw;
   height: 500px;
+  z-index: 1
 }
 
 #location-info {
@@ -41,9 +42,17 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.visited {
+.itinerary-options-container {
+  display: inline-block;
+}
+
+.visited-true {
   opacity: 0.3;
-  filter: grayscale(100%);
+  filter: grayscale(50%);
+}
+
+.visited-true .itinerary-name {
+  display: none;
 }
 
 img {
@@ -64,4 +73,37 @@ img {
   height: 20px;
   width: 20px;
   background-color: green
+}
+
+.btn-review{
+  height: 20px;
+  width: 20px;
+  background-color: orange
+}
+
+
+.review-modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }

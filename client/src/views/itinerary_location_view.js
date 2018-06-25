@@ -6,7 +6,7 @@ ItineraryLocationView = function(container){
 
 ItineraryLocationView.prototype.render = function (location) {
   const locationContainer = document.createElement('div')
-  locationContainer.classList.add('itinerary-card')
+  locationContainer.classList.add('itinerary-card',`visited-${location.visited}`)
 
   const name = document.createElement('h4')
   name.innerText = location.name
@@ -19,11 +19,18 @@ ItineraryLocationView.prototype.render = function (location) {
   image.classList.add('itinerary-image')
   locationContainer.appendChild(image)
 
+  const buttonContainer = document.createElement('div')
+  buttonContainer.classList.add('itinerary-options-container')
+  locationContainer.appendChild(buttonContainer)
+
   const deleteButton = this.createDeleteButton(location._id)
-  locationContainer.appendChild(deleteButton)
+  buttonContainer.appendChild(deleteButton)
 
   const visitedButton = this.createVisitedButton(location._id)
-  locationContainer.appendChild(visitedButton)
+  buttonContainer.appendChild(visitedButton)
+
+  const reviewButton = this.createReviewButton(location._id)
+  buttonContainer.appendChild(reviewButton)
 
   this.container.appendChild(locationContainer)
 };
@@ -39,7 +46,7 @@ ItineraryLocationView.prototype.createDeleteButton = function (locationId) {
   return button
 };
 
-ItineraryLocationView.prototype.createVisitedButton = function (location) {
+ItineraryLocationView.prototype.createVisitedButton = function (locationId) {
   const form = document.createElement('form')
   form.classList.add('btn-visited')
   form.innerText = 'visited'
@@ -54,6 +61,20 @@ ItineraryLocationView.prototype.createVisitedButton = function (location) {
     PubSub.publish('Itinerary:visited-btn-clicked', evt.target.value)
   });
   return form
+};
+
+ItineraryLocationView.prototype.createReviewButton = function (locationId) {
+  const button = document.createElement('button')
+  button.classList.add('btn-review')
+  button.value = locationId
+
+  const modal = document.getElementById('modal')
+
+  button.addEventListener('click', (evt) => {
+    PubSub.publish('Itinerary:review-btn-clicked', evt.target.value)
+    modal.style.display = 'block'
+  })
+  return button
 };
 
 
