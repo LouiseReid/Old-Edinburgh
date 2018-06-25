@@ -32,6 +32,13 @@ ItineraryLocationView.prototype.render = function (location) {
   const reviewButton = this.createReviewButton(location._id)
   buttonContainer.appendChild(reviewButton)
 
+  const ratingContainer = document.createElement('div')
+  ratingContainer.classList.add('rating-container')
+  locationContainer.appendChild(ratingContainer)
+
+  const ratings = this.renderRatings(location.review)
+  ratingContainer.appendChild(ratings)
+
   this.container.appendChild(locationContainer)
 };
 
@@ -51,7 +58,7 @@ ItineraryLocationView.prototype.createVisitedButton = function (locationId) {
   form.classList.add('btn-visited')
   form.innerText = 'visited'
   form.value = {
-    id: location,
+    id: locationId,
     payload: {
       visited: true
     }
@@ -75,6 +82,24 @@ ItineraryLocationView.prototype.createReviewButton = function (locationId) {
     modal.style.display = 'block'
   })
   return button
+};
+
+ItineraryLocationView.prototype.renderRatings = function (locationRating) {
+  const p = document.createElement('p')
+  p.classList.add('rating')
+
+  p.innerText = 'Review: ' + this.rating(locationRating)
+
+  return p
+};
+
+ItineraryLocationView.prototype.rating = function (locationRating) {
+  if (!locationRating) {
+    return 'Yet to be reviewed'
+  }
+  else {
+    return locationRating
+  }
 };
 
 
