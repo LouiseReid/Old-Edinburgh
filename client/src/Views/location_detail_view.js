@@ -14,16 +14,21 @@ LocationDetailView.prototype.renderLocationDetail = function (location) {
 
   const title = document.createElement('h1')
   title.innerText = location.name
+  title.classList.add('location-info-header')
   this.container.appendChild(title)
 
   const infoDiv = document.createElement('div')
   infoDiv.classList.add('location-info-inner')
   this.container.appendChild(infoDiv)
 
+  const imageContainer = document.createElement('div')
+  imageContainer.classList.add('location-img')
+  infoDiv.appendChild(imageContainer)
+
   const image = document.createElement('img')
   image.src = location.image
   image.alt = location.name
-  infoDiv.appendChild(image)
+  imageContainer.appendChild(image)
 
   const fact = document.createElement('section')
   fact.innerText = location.fact
