@@ -1,5 +1,7 @@
 body {
   margin: 0 auto;
+  background-image: url('/images/tartan.jpg');
+  font-family: de-walpergens-pica, serif;
 }
 
 img {
@@ -8,6 +10,8 @@ img {
 
 #page-header {
   text-align: center;
+  color: white;
+  font-size: 50px;
 }
 
 #main-container {
@@ -16,13 +20,19 @@ img {
 }
 
 #map {
-  width: 45vw;
+  width: 47vw;
   height: 500px;
-  z-index: 1
+  z-index: 1;
+  border: 5px solid lightgoldenrodyellow;
+  border-radius: 2%
+
 }
 
 #location-info {
-  width: 45vw;
+  width: 47vw;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 5px solid lightgoldenrodyellow;
+  border-radius: 2%
 }
 
 .location-info-inner {
@@ -31,6 +41,7 @@ img {
 
 #itinerary-container {
   display: flex;
+  margin: 10px;
 }
 
 .itinerary-card {
@@ -39,6 +50,10 @@ img {
   color: white;
   display: flex;
   flex-direction: column;
+  margin: 10px;
+  background-color: lightgoldenrodyellow;
+  height: 200px;
+  width: 180px
 }
 
 .itinerary-name {
@@ -72,14 +87,10 @@ img {
   left: 30%;
   border-radius: 50%;
   font-size: 34px;
-  color: lightseagreen;
+  color: lightgoldenrodyellow;
   width: 60px;
   height: 60px;
   line-height: 60px;
-}
-
-.visited-true * {
-  transition: transform 5s ease-out;
 }
 
 
