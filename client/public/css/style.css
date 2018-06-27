@@ -84,7 +84,9 @@ body {
   margin: 10px;
   background-color: lightgoldenrodyellow;
   height: 200px;
-  width: 180px
+  width: 180px;
+  border: 2px solid goldenrod;
+  border-radius: 1%;
 }
 
 .itinerary-name {
@@ -94,9 +96,18 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.itinerary-image {
-  height: auto;
-  width: 180px;
+.itinerary-img {
+  margin: 8px 0;
+  height: 50%;
+  width: 90%;
+  overflow: hidden;
+  align-self: center;
+  border-radius: 1%;
+}
+
+.itinerary-img img {
+  height: 120px;
+  width: auto;
 }
 
 .itinerary-options-container {
@@ -113,18 +124,26 @@ body {
   display: none;
 }
 
+.visited-true .btn-visited {
+  display: none;
+}
+
 .rating-container {
   color: black
 }
 
 .visited-undefined i {
-  transform: scale(0);
+  display: none;
+}
+
+.visited-undefined .btn-review {
+  display: none;
 }
 
 .visited-true .fa-check-circle {
   position: absolute;
-  top: 10%;
-  left: 30%;
+  top: 14%;
+  left: 34%;
   border-radius: 50%;
   font-size: 34px;
   color: lightgoldenrodyellow;
@@ -161,22 +180,17 @@ body {
   top: 6px;
 }
 
-.btn-remove {
-  height: 20px;
-  width: 20px;
-  background-color: red
-}
-
-.btn-visited {
-  height: 20px;
-  width: 20px;
-  background-color: green
-}
-
-.btn-review{
-  height: 20px;
-  width: 20px;
-  background-color: orange
+.btn {
+  border: 2px solid black;
+  box-shadow: 0 2px grey;
+  font-size: 15px;
+  font-family: inherit;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  background-color: inherit;
 }
 
 /* MODAL */

@@ -13,12 +13,14 @@ ItineraryLocationView.prototype.render = function (location) {
   name.classList.add('itinerary-name')
   locationContainer.appendChild(name)
 
+  const imageContainer = document.createElement('div')
+  imageContainer.classList.add('itinerary-img')
+  locationContainer.appendChild(imageContainer)
+
   const image = document.createElement('img')
   image.src = location.image
   image.alt = location.name
-  image.classList.add('itinerary-image')
-  locationContainer.appendChild(image)
-
+  imageContainer.appendChild(image)
 
   const icon = document.createElement('i')
   icon.classList.add('fa', 'fa-check-circle')
@@ -49,8 +51,9 @@ ItineraryLocationView.prototype.render = function (location) {
 
 ItineraryLocationView.prototype.createDeleteButton = function (locationId) {
   const button = document.createElement('button')
-  button.classList.add('btn-remove')
+  button.classList.add('btn','btn-remove')
   button.value = locationId
+  button.innerText = 'Remove'
 
   button.addEventListener('click', (evt) => {
     PubSub.publish('Itinerary:delete-btn-clicked', evt.target.value)
@@ -60,8 +63,8 @@ ItineraryLocationView.prototype.createDeleteButton = function (locationId) {
 
 ItineraryLocationView.prototype.createVisitedButton = function (locationId) {
   const form = document.createElement('form')
-  form.classList.add('btn-visited')
-  form.innerText = 'visited'
+  form.classList.add('btn', 'btn-visited')
+  form.innerText = 'Visited'
   form.value = {
     id: locationId,
     payload: {
@@ -77,8 +80,9 @@ ItineraryLocationView.prototype.createVisitedButton = function (locationId) {
 
 ItineraryLocationView.prototype.createReviewButton = function (locationId) {
   const button = document.createElement('button')
-  button.classList.add('btn-review')
+  button.classList.add('btn','btn-review')
   button.value = locationId
+  button.innerText = 'Review'
 
   const modal = document.getElementById('modal')
 
