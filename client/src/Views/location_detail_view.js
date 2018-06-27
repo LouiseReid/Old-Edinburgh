@@ -41,7 +41,7 @@ LocationDetailView.prototype.renderLocationDetail = function (location) {
 LocationDetailView.prototype.createAddButton = function (location) {
   const form = document.createElement('form')
   form.classList.add('btn-add')
-  form.innerText = 'Add'
+  form.innerText = 'Add to Itinerary'
   form.value = this.createItineraryItem(location)
 
   form.addEventListener('click', (evt) => {

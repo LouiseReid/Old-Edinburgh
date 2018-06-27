@@ -31,7 +31,7 @@ body {
   width: 47vw;
   background-color: rgba(255, 255, 255, 0.8);
   border: 5px solid lightgoldenrodyellow;
-  border-radius: 2%
+  border-radius: 2%;
 }
 
 .location-info-inner {
@@ -124,12 +124,13 @@ body {
 
 /* BUTTONS */
 .btn-add {
-  position: absolute;
-  bottom: 2%;
-  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  width: 40%;
   border: 2px dashed black;
   font-size: 20px;
   padding: 2px;
+  margin: 30px auto;
 }
 
 .btn-remove {
