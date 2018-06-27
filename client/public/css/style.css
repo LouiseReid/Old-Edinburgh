@@ -127,10 +127,24 @@ body {
   display: flex;
   justify-content: center;
   width: 40%;
-  border: 2px dashed black;
+  border: 2px solid black;
+  box-shadow: 0 2px grey;
   font-size: 20px;
   padding: 2px;
   margin: 30px auto;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+.btn-add:hover {
+  box-shadow: 0 1px grey;
+  top: 2px
+}
+
+.btn-add:active {
+  box-shadow: none;
+  top: 6px;
 }
 
 .btn-remove {
