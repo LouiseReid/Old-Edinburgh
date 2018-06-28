@@ -8,7 +8,7 @@ const ReviewView = require('./views/review_view.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  map = new MapWrapper('map', 55.948595, -3.199913, 15);
+  map = new MapWrapper('map', 55.951998, -3.189970, 14);
   const locations = new Locations()
   locations.getData()
 
