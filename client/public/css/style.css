@@ -132,6 +132,7 @@ body {
   color: black
 }
 
+
 .visited-undefined i {
   display: none;
 }
@@ -150,8 +151,6 @@ body {
   width: 60px;
   height: 60px;
   line-height: 60px;
-  transform: scale(1);
-  transition: transform 300ms 100ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 
@@ -167,15 +166,14 @@ body {
   margin: 30px auto;
   cursor: pointer;
   border-radius: 5px;
-
 }
 
-.btn-add:hover {
+.btn:hover {
   box-shadow: 0 1px grey;
   top: 2px
 }
 
-.btn-add:active {
+.btn:active {
   box-shadow: none;
   top: 6px;
 }
@@ -183,14 +181,14 @@ body {
 .btn {
   border: 2px solid black;
   box-shadow: 0 2px grey;
-  font-size: 15px;
+  font-size: 18px;
   font-family: inherit;
   padding: 2px;
   cursor: pointer;
   border-radius: 5px;
   outline: none;
   color: black;
-  background-color: inherit;
+  background-color: transparent;
 }
 
 /* MODAL */
