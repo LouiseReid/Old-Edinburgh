@@ -6,7 +6,7 @@ const Locations = function(){
 }
 
 Locations.prototype.getData = function () {
-  const request = new Request('http://localhost:3000/api/locations');
+  const request = new Request('/api/locations');
   request.get()
   .then((data) => {
     this.sendData(data)

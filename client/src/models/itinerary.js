@@ -2,7 +2,7 @@ const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
 
 const Itinerary = function() {
-  this.url = 'http://localhost:3000/api/itinerary'
+  this.url = '/api/itinerary'
   this.locations = []
 }
 
