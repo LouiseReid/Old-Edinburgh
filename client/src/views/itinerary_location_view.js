@@ -2,7 +2,6 @@ const PubSub = require('../helpers/pub_sub.js');
 
 ItineraryLocationView = function(container){
   this.container = container
-  
 }
 
 ItineraryLocationView.prototype.render = function (location) {
