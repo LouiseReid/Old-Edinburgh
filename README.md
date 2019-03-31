@@ -1,6 +1,6 @@
 ## Old Edinburgh
 
-Interactive tourist trail of Old Edinburgh attractions.  The app was built using the Publish/Subscript pattern, Vanilla JavasScript, Leaflet and MongoDB. 
+Interactive tourist trail of Old Edinburgh attractions.  The app was built using a Publish/Subscript pattern, Vanilla JavasScript, Leaflet and MongoDB. 
 
 
 #### To run
